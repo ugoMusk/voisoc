@@ -1,7 +1,7 @@
-# Voisoc Technical Documentation
+# Voices of Change Technical Documentation
 
 ## Overview
-Voisoc is a content creation platform focused on leadership, good governance, people power, and human rights activism. The platform consists of a **frontend** built with React, tailwind and a **backend** powered by Node.js and MongoDB. This documentation outlines the implementation details for both components, including key features, setup instructions, and architectural decisions.
+Voices of Change (voisoc) is a content creation platform focused on leadership, good governance, people power, and human rights activism. The platform consists of a **frontend** built with React, tailwind and a **backend** powered by Node.js, Socket.io and MongoDB. This documentation outlines the implementation details for both components, including key features, setup instructions, and architectural decisions of voisoc.
 
 ---
 
