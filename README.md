@@ -62,6 +62,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 ```
 
 ### Folder Structure
+```plaintext
 ├── backend
 │   ├── crud
 │   ├── db
@@ -92,6 +93,7 @@ REACT_APP_API_URL=http://localhost:5000/api
         │   │   └── utils
         │   └── utils
         └── utils
+```
 
 
 ### Key Features
