@@ -192,7 +192,7 @@ export default function Profile({ theme }) {
     }
 
     return (
-        <div className="p-4 border border-gray-600">
+        <div className="p-4 mt-6 border border-gray-400">
             <div className="flex items-center space-x-4">
                 <div className="relative">
                     <img
