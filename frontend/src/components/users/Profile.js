@@ -124,7 +124,7 @@ export default function Profile({ theme }) {
                 { targetusername: targetUsername, currentusername: currentUser.username, action },
                 { withCredentials: true }
             );
-
+	    
             if (response.status === 200) {
                 const updatedUsersToFollow = usersToFollow.map((user) =>
                     user.username === targetUsername
@@ -136,6 +136,7 @@ export default function Profile({ theme }) {
                 setUsersToFollow(updatedUsersToFollow);
 
                 localStorage.setItem(`isFollowing_${targetUser.username}`, JSON.stringify(!isFollowing));
+		window.location.reload();
             } else {
                 throw new Error(`${action} failed`);
             }

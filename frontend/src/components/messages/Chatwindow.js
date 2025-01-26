@@ -100,7 +100,7 @@ const ChatWindow = ({ recipient, theme }) => {
                 </button>
                 <img
                     className="w-10 h-10 mr-4 rounded-full"
-                    src={recipient.avatar}
+                    src={recipient.bio.profilePicture}
                     alt={`${recipient.username}'s avatar`}
                 />
                 <h3 className="text-lg ml-2 font-semibold">

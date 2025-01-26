@@ -39,12 +39,13 @@ export default function ResponsiveLayout({ children, theme, toggleTheme }) {
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false); // Mark as loaded
-    }, 2000); // Adjust timing based on your needs
+    }, 1000); // Adjust timing based on your needs
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
       }, []);
 
     const navbarWidth = Math.max(windowWidth / 8, 64);
+    
     // const timeString = currentTime.toLocaleTimeString();
     const dateString = currentTime.toLocaleDateString("en-US", { year: "numeric" });
 
