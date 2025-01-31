@@ -27,6 +27,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "bash -c 'source ~/.nvm/nvm.sh && nodemon'"
+    "dev": "nodemon server.js"
   }
 }
