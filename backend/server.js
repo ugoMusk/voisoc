@@ -51,7 +51,7 @@ redisClient.connect();
 
 // Configure CORS middleware
 const corsOptions = {
-    origin: ['https://localhost:3000', 'http://localhost:3000', ],
+    origin: ['https://localhost:3000', 'http://localhost:3000', 'http://localhost:5000', 'https://584f-102-91-4-10.ngrok-free.app', ],
     credentials: true, // Allow credentials (cookies, Authorization header)
 };
 

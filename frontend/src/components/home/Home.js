@@ -11,7 +11,7 @@ const Home = React.memo(({ quotesInterval = 5000, videoInterval = 7000 }) => {
   const { isAuthenticated } = useAuth(); // Get the authentication state from the context
 
   const aboutVoisoc =
-    "Voices of Change is a content-sharing and appreciation platform for leaders, activists, and advocates.\nIt is often said that the present shapes the future just as the past shaped the present—until we choose otherwise. This belief underscores the purpose of Voices of Change, a platform designed to amplify discussions on leadership, good governance, people power, and human rights activism. \n             Our goal is to provide an intuitive and inclusive space where thoughtful leaders, dedicated activists, and engaged citizens can share ideas, foster meaningful conversations, and drive societal impact. We believe humanity is deeply ingrained in every culture, and the preservation and revitalization of these cultural heritages require thoughtful leadership and a revolutionary mindset. \nWe aim to empower true leaders and positive changemakers in their efforts to preserve the diversity of humanity and inspire a brighter future.";
+    "Voices of Change is a content-sharing and appreciation platform for leaders, activists, and advocates.\nIt is often said that the present shapes the future just as the past shaped the present—until we choose otherwise. This belief underscores the purpose of Voices of Change, a platform designed to amplify discussions on leadership, good governance, people power, and human rights activism. \n Our goal is to provide an intuitive and inclusive space where thoughtful leaders, dedicated activists, and engaged citizens can share ideas, foster meaningful conversations, and drive societal impact. We believe humanity is deeply ingrained in every culture, and the preservation and revitalization of these cultural heritages require thoughtful leadership and a revolutionary mindset. \nWe aim to empower true leaders and positive changemakers in their efforts to preserve the diversity of humanity and inspire a brighter future.";
 
   const voisocHeading = "About the Project";
 
@@ -76,12 +76,15 @@ const Home = React.memo(({ quotesInterval = 5000, videoInterval = 7000 }) => {
   return (
     <div className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center">
       <div className="text-center pt-8 pb-6 px-2 text-white bg-opacity-50 bg-black rounded-lg w-full max-w-4xl flex flex-col items-center justify-center">
-        <h3 className="text-2xl font-bold mb-4">Welcome to Voices of Change</h3>
+        <h3 className="text-4xl font-bold mb-4">Welcome to Voices of Change</h3>
 
         {/* Quote Slider */}
-        <div className="quote-slider mb-11">
-          <p className="italic text-l">{quotes[currentQuote]}</p>
+        <div className="quote-slider sm:mb-8 mb-28">
+          <p className="italic font-bold text-blue-900 border-2 border-teal-500 rounded-[8px] text-xl">{quotes[currentQuote]}</p>
         </div>
+	  <Spacer />
+	  
+	  <div></div>
 
         {/* YouTube Video Queue */}
         <YouTubeQueue
@@ -98,7 +101,8 @@ const Home = React.memo(({ quotesInterval = 5000, videoInterval = 7000 }) => {
           {aboutVoisoc.split("\n").map((line, index) => (
             <ResponsiveParagraph key={index} text={line} />
           ))}
-          <Spacer />
+            <Spacer />
+	    
           {/* Conditionally render the Join Us button */}
           {!isAuthenticated && (
             <div>
