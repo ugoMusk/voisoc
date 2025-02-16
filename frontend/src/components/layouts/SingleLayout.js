@@ -17,7 +17,7 @@ export default function ResponsiveLayout({ children, theme, toggleTheme }) {
     const isHomeRoute = location.pathname === "/";
     const bgImage = isHomeRoute ? "home-background" : "bg-black";
 
-    // Random image URL
+    const randomProfilePicture = `https://1.bp.blogspot.com/-by0H_AEwXUk/VrziWZ4NoGI/AAAAAAAITPw/h_nXnG0CVWE/s1600/index.jpg`; // Random image URL
     const randomProfilePicture2 = `https://lh3.googleusercontent.com/a/ACg8ocIEhBavg338BUW_S26EeP447xr4BxlXvX2leqXoG9FEdUGvnphK=s288-c-no`
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function ResponsiveLayout({ children, theme, toggleTheme }) {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date());
-        }, 500);
+        }, 1000);
 
         return () => clearInterval(timer);
     }, []);
@@ -39,13 +39,12 @@ export default function ResponsiveLayout({ children, theme, toggleTheme }) {
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false); // Mark as loaded
-    }, 500); // Adjust timing based on your needs
+    }, 2000); // Adjust timing based on your needs
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
       }, []);
 
     const navbarWidth = Math.max(windowWidth / 8, 64);
-    
     // const timeString = currentTime.toLocaleTimeString();
     const dateString = currentTime.toLocaleDateString("en-US", { year: "numeric" });
 

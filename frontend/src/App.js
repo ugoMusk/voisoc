@@ -98,6 +98,13 @@ function ChatWithParams({ contacts }) {
     // Find the recipient using the username from the URL
     const recipient = contacts.find((contact) => contact.username === username);
 
+    // Retrieve user info from localStorage
+    //const userInfo = localStorage.getItem("userInfo")
+      //  ? JSON.parse(localStorage.getItem("userInfo"))
+        //: null;
+
+    //const userId = userInfo?.user?.id;
+
     if (!recipient) {
         console.error(`No contact found with username: ${username}`);
         return <div>User not found</div>;

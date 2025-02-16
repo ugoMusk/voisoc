@@ -59,7 +59,6 @@ export default function Login() {
 
             // Redirect user to the profile page
             navigate(`/profile?username=${username}`);
-	    window.location.reload();
 	} catch (error) {
             console.error("Error logging in:", error.response ? error.response.data : error.message);
             alert("Login failed. Please try again.");

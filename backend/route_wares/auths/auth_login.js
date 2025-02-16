@@ -56,7 +56,16 @@ const loginHandler = async (req, res) => {
 
         // Store session in Redis
         await redisClient.set(sessionId, JSON.stringify(sessionData), { EX: 86400 }); // Expire after 24 hours
-  
+        console.log("Stored session in Redis:", sessionData);
+
+        // Update the user's sessions array in MongoDB
+        const usersCollection = await getUsersCollection();
+        await usersCollection.updateOne(
+            { _id: user._id },
+            { $push: { sessions: sessionData } } // Push the session data to the sessions array
+        );
+        console.log("Updated user sessions in MongoDB");
+
         // Set the session ID as a cookie
         res.cookie("connect.sid", sessionId, {
             httpOnly: true,
