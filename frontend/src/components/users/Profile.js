@@ -17,6 +17,7 @@ export default function Profile({ theme }) {
     const [targetUser, setTargetUser] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isFollowing, setIsFollowing] = useState(false);
+    const [followingCount, setFollowingCount] = useState(0);
     const [error, setError] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({});
@@ -55,7 +56,15 @@ export default function Profile({ theme }) {
 
 		const user = response.data;
 		const social = user.social || {};
+		console.log("User Social Object:", social);
 		const followers = Array.isArray(social.followers) ? social.followers : [];
+		const totalFollowers = social.followers;
+		const totalFollowings = social.following;
+
+		console.log("User followings: ",totalFollowings);
+		console.log("User followers: ",totalFollowers);
+
+		setFollowingCount(totalFollowings)
 
 		setUserInfo(user);
 
@@ -162,6 +171,10 @@ export default function Profile({ theme }) {
 
 		    // Update the follow state for the target user
 		    savedFollowState[targetUsername] = !user.isFollowing;
+		    if (user.isFollowing){
+			setFollowingCount(followingCount-1)
+		    }else{
+			setFollowingCount(followingCount+1)}
 
 		    // Save updated object back to localStorage
 		    localStorage.setItem("followingStatus", JSON.stringify(savedFollowState));
@@ -264,7 +277,7 @@ export default function Profile({ theme }) {
                     {/* Social Info */}
                     <div className="mt-4">
 			<h2 className="text-xl font-bold">Connections</h2>
-			<p className="mt-2">Following: {userInfo.social?.following || 0}</p>
+			<p className="mt-2">Following: {followingCount || 0}</p>
 			<p className="mt-2">Followers: {userInfo.social?.followers || 0}</p>
                     </div>
 
