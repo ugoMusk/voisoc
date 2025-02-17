@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthenticationContext.js"; // Import the useAuth hook
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 export default function Feed({ theme }) {
     const { isAuthenticated, currentUser} = useAuth(); // Get isAuthenticated from context
   const [posts, setPosts] = useState([]);
@@ -58,7 +60,7 @@ export default function Feed({ theme }) {
                         return (
                           <div key={idx} className="relative">
                             <img
-                              src={`http://localhost:5000/uploads/${media.filename}`} // Update with your server's address
+                              src={`${baseURL}/uploads/${media.filename}`} // Update with your server's address
                               alt={`Media ${idx}`}
                               className="w-full h-auto rounded-lg shadow-sm"
                             />

@@ -1,10 +1,13 @@
 import axios from "axios";
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 async function getAllUsersWithTokens() {
     try {
-        const response = await axios.get("http://localhost:5000/users-tokens", {
-            withCredentials: true, // Include cookies for authentication if needed
-        });
+        const response = await axios.get(
+	    `${baseURL}/users-tokens`,
+	    { withCredentials: true,}
+	);
 
         if (!Array.isArray(response.data)) {
             throw new Error("Unexpected response format: data is not an array");

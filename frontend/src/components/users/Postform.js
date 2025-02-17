@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useAuth } from "../contexts/AuthenticationContext.js";
 import axios from "axios";
 
-const baseURL = "http://localhost:5000";
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 export default function PostForm({ onPostSubmit, theme }) {
     const [content, setContent] = useState("");

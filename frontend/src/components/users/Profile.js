@@ -6,7 +6,7 @@ import { getUserList } from "./utils/user_list.js";
 import axios from "axios";
 import defaultProfilePic from "../../assets/user.png";
 
-const baseURL = "http://localhost:5000";
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 export default function Profile({ theme }) {
     const { logout, currentUser } = useAuth();
@@ -277,8 +277,11 @@ export default function Profile({ theme }) {
                                     <img
 					src={user.bio?.profilePicture || defaultProfilePic}
 					alt={user.username}
-					className="w-12 h-12 rounded-full object-cover"
-                                    />
+					className={`w-12 h-12 rounded-full object-cover ${
+        theme === "dark" ? "bg-gray-800 text-black" : "bg-white text-black"
+    }`}
+				    />
+
                                     <div>
 					<p className="font-bold">{user.username}</p>
 					<button
@@ -343,7 +346,7 @@ export default function Profile({ theme }) {
                                             Cancel
 					</button>
 					<button
-                                            type="submit"
+                                             type="submit"
                                             className="px-4 py-2 bg-blue-500 text-white rounded"
 					>
                                             Save

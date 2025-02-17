@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import { useAuth } from "../contexts/AuthenticationContext.js";
 
-const socket = io("http://localhost:5000", {
+const baseURL = process.env.REACT_APP_BASE_URL;
+
+const socket = io(`${baseURL}`, {
     transports: ["websocket", "polling"],
     withCredentials: true,
 });

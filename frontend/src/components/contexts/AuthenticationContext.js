@@ -5,6 +5,8 @@ const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 export function AuthProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
@@ -45,7 +47,7 @@ export function AuthProvider({ children }) {
     const register = async (userDetails) => {
     try {
         // Send the registration request to the backend
-        const response = await axios.post("http://localhost:5000/register", userDetails);
+        const response = await axios.post(`${baseURL}/register`, userDetails);
 
         // Extract the response data
         const { message, userId } = response.data;

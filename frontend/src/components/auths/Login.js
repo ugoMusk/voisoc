@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../contexts/AuthenticationContext.js"; // Import the AuthContext hook
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate
 
-const baseURL = "http://localhost:5000";
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 export default function Login() {
     const { login } = useAuth(); // Use login method from AuthContext
