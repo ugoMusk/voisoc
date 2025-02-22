@@ -189,6 +189,8 @@ export default function Profile({ theme }) {
 	    }
 	} catch (err) {
 	    console.error("Error toggling follow:", err);
+	    alert("The current session has expired, you should login again, to perfom this operation. NOTE: Sessions last within 24hrs.");
+	    logout();
 	}
     };
 

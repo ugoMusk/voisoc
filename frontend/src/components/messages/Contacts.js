@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useAuth } from "../contexts/AuthenticationContext.js";
 import getAllUsersWithTokens from "../../utils/user_list.js";
+import defaultProfilePic from "../../assets/user.png";
 
-const ContactsList = () => {
+const ContactsList = ({ theme }) => {
     const [contacts, setContacts] = useState([]); // Contacts state
     const navigate = useNavigate();
     const { currentUser } = useAuth();
 
-    useEffect(() => {
+
+
+     useEffect(() => {
         const fetchContacts = async () => {
             try {
                 const usersArray = await getAllUsersWithTokens();
@@ -42,8 +46,11 @@ const ContactsList = () => {
                         <li key={contact.id} onClick={() => onSelectContact(contact)} className="border-t">
                             <img
                                 className="h-6 w-6"
-                                src={contact.bio?.profilePicture}
+                                src={contact.bio?.profilePicture || defaultProfilePic}
                                 alt={`${contact.username}'s avatar`}
+				className={`w-12 h-12 rounded-full object-cover ${
+        theme === "dark" ? "bg-gray-800 text-black" : "bg-white text-black"
+    }`}
                             />
                             <span>{contact.firstname + " " + contact.lastname}</span>
                         </li>
