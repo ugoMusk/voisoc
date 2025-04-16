@@ -21,6 +21,7 @@ const deleteUserHandler = require("./route_wares/users/delete_user_info.js");
 const deleteAllUsersHandler = require("./route_wares/users/delete_all_user_info.js");
 const { updateProfilePicture } = require("./route_wares/users/update_profile_pic.js");
 const { createPostHandler } = require("./route_wares/posts/create_post.js");
+const { getPostsHandler } = require("./route_wares/posts/get_posts.js");
 const createMessageHandler = require("./route_wares/messages/create_message.js");
 const registerLimiter = require("./middlewares/register_limiter.js");
 const authenticateUser = require("./middlewares/authenticate_user.js");
@@ -78,8 +79,10 @@ app.delete("/deleteall", deleteAllUsersHandler);
 
 app.post("/update", updateUserHandler);
 
-// Create post route
+// Post routes
 app.post("/create-post", createPostHandler);
+app.post("/get-posts", getPostsHandler);
+
 
 // Routes
 app.post("/messages", createMessageHandler);

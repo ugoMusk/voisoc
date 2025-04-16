@@ -18,12 +18,12 @@ Voisoc is a content creation platform focused on leadership, good governance, pe
 ### Folder Structure
 ```plaintext
 backend/
-├── controllers/    # Business logic for handling routes
-├── models/         # Mongoose schemas for database entities
-├── routes/         # API route definitions
-├── middlewares/    # Middleware functions (e.g., authentication)
-├── config/         # Configuration files (e.g., database connection)
-├── utils/          # Helper functions
+├── crud
+├── db
+├── middlewares
+├── node_modules
+├── route_wares
+|── uploads
 ├── server.js       # Entry point
 ```
 
@@ -42,12 +42,12 @@ backend/
 ### API Endpoints
 | Method | Endpoint          | Description                   | Auth Required |
 |--------|-------------------|-------------------------------|---------------|
-| POST   | `/api/auth/login` | Login a user                 | No            |
-| POST   | `/api/auth/signup`| Register a new user          | No            |
-| GET    | `/api/posts`      | Get all posts           | No            |
-| POST   | `/api/posts`      | Create a new  post       | Yes           |
-| PUT    | `/api/posts/:id`  | Update an existing post | Yes           |
-| DELETE | `/api/posts/:id`  | Delete a post           | Yes           |
+| POST   | `/login` | Login a user                 | No            |
+| POST   | `/register`| Register a new user          | No            |
+| GET    | `/get_posts`      | Get all posts           | No            |
+| POST   | `/create_posts`      | Create a new  post       | Yes           |
+| PUT    | `/posts/:id`  | Update an existing post | Yes           |
+| DELETE | `/posts/:id`  | Delete a post           | Yes           |
 
 ### Setup Instructions
 1. **Install Dependencies**:

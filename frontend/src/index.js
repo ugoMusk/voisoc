@@ -6,6 +6,6 @@ import "./App.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App theme="dark" isAuthenticated={true} />
+    <App theme="dark" isAuthenticated={false} />
   </React.StrictMode>,
 );
